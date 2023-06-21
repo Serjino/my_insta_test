@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+    output: 'export',
     experimental: {
         serverActions: true,
     },
@@ -8,8 +9,6 @@ const nextConfig = {
           {
             protocol: 'https',
             hostname: 'via.placeholder.com',
-            // port: '',
-            // pathname: ['/150/**', '/600/**'],
           },
         ],
       },
