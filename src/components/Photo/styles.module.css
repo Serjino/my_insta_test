@@ -1,0 +1,27 @@
+.photoListItem {
+  display: flex;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.photoListItem:hover {
+  scale: 1.05;
+  z-index: 2;
+}
+
+.photoListItem img {
+  object-fit: cover;
+}
+
+.photoListItem a {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.photoIdWrapper {
+  position: absolute;
+  z-index: 2;
+  top: 5px;
+  left: 5px;
+}

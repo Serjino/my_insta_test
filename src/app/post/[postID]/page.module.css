@@ -1,0 +1,39 @@
+.page {
+    display: flex;
+    max-width: 600px;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    height: 100vh;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding: 10px !important;
+}
+
+.titleWrapper {
+    display: flex;
+    width: 100%;
+    gap: var(--spacing);
+    align-items: center;
+    justify-content: flex-start;
+    text-transform: capitalize;
+}
+
+.photoFullSize {
+    width: 100%;
+    height: 600px;
+    position: relative;
+}
+
+.photoFullSize img {
+    object-fit: cover;
+}
+
+.commentsListWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: calc(2 * var(--spacing));
+    margin-top: calc(2 * var(--spacing));
+    overflow: scroll;
+    padding-right: calc(2 * var(--spacing));
+}

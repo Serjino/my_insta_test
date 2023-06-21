@@ -1,0 +1,58 @@
+.leaveCommentBtn {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  font-size: 14px !important;
+  font-weight: 500;
+  color: grey;
+  cursor: pointer;
+  padding-left: calc(3 * var(--spacing));
+}
+
+.leaveCommentBtn:hover {
+  color: blue
+}
+
+.formWrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 100%;
+  padding: var(--spacing) 0;
+  gap: var(--spacing);
+}
+
+.input {
+  resize: none;
+  width: 100%;
+  padding: var(--spacing);
+  height: 78px;
+  font-family: var(--font-mono);
+}
+
+.submitBtn {
+  padding: calc(0.5 * var(--spacing)) calc(1 * var(--spacing));
+  font-family: var(--font-mono);
+  border: none;
+  outline: 1px solid grey;
+  border-radius: calc(0.25 * var(--spacing));
+}
+
+.myCommentsListWrapper {
+  display: flex;
+  border-top: 1px solid rgba(0, 0, 0, 0.10);
+  flex-direction: column;
+  gap: var(--spacing);
+  padding-left: calc(3 * var(--spacing));
+  margin-top: var(--spacing);
+}
+
+.myComment {
+  padding: var(--spacing) 0;
+  align-items: flex-start;
+}
