@@ -1,7 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    // output: 'export',
+    output: 'export',
+    basePath: '/gh-pages-test',
     experimental: {
+      appDir: true,
         serverActions: true,
     },
     images: {
@@ -9,6 +11,8 @@ const nextConfig = {
           {
             protocol: 'https',
             hostname: 'via.placeholder.com',
+            // port: '',
+            // pathname: ['/150/**', '/600/**'],
           },
         ],
       },
