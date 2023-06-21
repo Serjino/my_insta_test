@@ -14,7 +14,7 @@ export function PhotoList(props: IPhotoListProps) {
 
     const ref = useRef() as RefObject<HTMLUListElement>
 
-    const _pagination = JSON.parse(localStorage.getItem('pagination')!) as IPaginationParams
+    const _pagination = JSON.parse(localStorage?.getItem('pagination')!) as IPaginationParams || null
 
     const [renderedPhotos, setRenderedPhotos] = useState(null as null | IPhoto[])
 
