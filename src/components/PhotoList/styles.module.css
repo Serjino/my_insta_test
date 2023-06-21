@@ -19,7 +19,7 @@
   }
 }
 
-@media only screen and (min-device-width: 481px) and (orientation:portrait) {
+@media only screen and (max-device-width: 481px) and (orientation:portrait) {
   .photoList {
     grid-template-columns: repeat(3, 120px);
     grid-auto-rows: 120px;
