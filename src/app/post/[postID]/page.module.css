@@ -34,6 +34,6 @@
     flex-direction: column;
     gap: calc(2 * var(--spacing));
     margin-top: calc(2 * var(--spacing));
-    overflow: scroll;
+    overflow-y: scroll;
     padding-right: calc(2 * var(--spacing));
 }
