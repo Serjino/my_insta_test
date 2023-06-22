@@ -91,12 +91,20 @@ export function MyComments(props: MyCommentsProps) {
                             className={styles.input}
                             placeholder='Введите Ваш комментарий'
                         />
-                        <button
-                            className={styles.submitBtn}
-                            type="submit"
-                        >
-                            Добавить
-                        </button>
+                        <div className={styles.btnPanel}>
+                            <button
+                                className={styles.formBtn}
+                                type="submit"
+                            >
+                                Добавить
+                            </button>
+                            <button
+                                className={styles.formBtn}
+                                onClick={switchInputMode}
+                            >
+                                Отменить
+                            </button>
+                        </div>
                     </form>
                 }
             </div>

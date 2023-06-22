@@ -35,7 +35,12 @@
   font-family: var(--font-mono);
 }
 
-.submitBtn {
+.btnPanel {
+  display: flex;
+  gap: calc(2 * VAR(--spacing))
+}
+
+.formBtn {
   padding: calc(0.5 * var(--spacing)) calc(1 * var(--spacing));
   font-family: var(--font-mono);
   border: none;
