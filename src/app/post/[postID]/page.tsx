@@ -42,19 +42,27 @@ export default async function Page({ params }: { params: { postID: string } }) {
                 </div>
             }
 
-            <div className={styles.commentsListWrapper}>
-                {COMMENTS?.map(comment => {
-                    return (
-                        <>
-                            <Comment comment={comment} />
-                            <MyComments
-                                postId={params.postID}
-                                comment={comment}
-                            />
-                        </>
-                    )
-                })}
-            </div>
+            {!COMMENTS || COMMENTS.length == 0
+                && <div className={styles.noComments}>
+                    Пока нет комментариев
+                </div>
+            }
+            {COMMENTS
+                &&
+                <div className={styles.commentsListWrapper}>
+                    {COMMENTS?.map(comment => {
+                        return (
+                            <>
+                                <Comment comment={comment} />
+                                <MyComments
+                                    postId={params.postID}
+                                    comment={comment}
+                                />
+                            </>
+                        )
+                    })}
+                </div>
+            }
 
         </div>
     )

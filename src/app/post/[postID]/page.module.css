@@ -37,3 +37,7 @@
     overflow-y: scroll;
     padding-right: calc(2 * var(--spacing));
 }
+
+.noComments {
+    padding: calc(2 * var(--spacing))
+}
