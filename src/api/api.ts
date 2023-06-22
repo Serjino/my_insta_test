@@ -17,7 +17,7 @@ interface IFetchParams {
 }
 
 export async function GET({ path, query, options }: IFetchParams) {
-    const res = await fetch(API_HOST + path + '?' + qs.stringify(query), {
+    const res = await fetch(API_HOST + path + (query ? '?' + qs.stringify(query) : ''), {
         ...DEFAULT_FETCH_CONFIG,
         ...options
     })
