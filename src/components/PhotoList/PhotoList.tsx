@@ -16,9 +16,9 @@ export function PhotoList(props: IPhotoListProps) {
 
     const _pagination = JSON.parse(localStorage?.getItem('pagination')!) as IPaginationParams || null
 
-    const [renderedPhotos, setRenderedPhotos] = useState(null as null | IPhoto[])
+    const [renderedPhotos, setRenderedPhotos] = useState<null | IPhoto[]>(null)
 
-    const [pagination, setPagination] = useState(_pagination || {
+    const [pagination, setPagination] = useState<IPaginationParams>(_pagination || {
         offset: 0,
         limit: PHOTOS_PER_PAGE,
     })

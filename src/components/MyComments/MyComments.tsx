@@ -18,10 +18,10 @@ export function MyComments(props: MyCommentsProps) {
         body: ''
     }
 
-    const [state, setState] = useState({
+    const [state, setState] = useState<IMyCommentsState>({
         inputMode: false,
         myComments: null
-    } as IMyCommentsState)
+    })
 
     useEffect(() => {
         const savedComments = JSON.parse(localStorage.getItem('myComments')!);
