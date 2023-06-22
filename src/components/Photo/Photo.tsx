@@ -14,7 +14,7 @@ export function Photo({ photo }: IPhotoProps) {
 
     useEffect(() => {
         const photoOpened = JSON.parse(localStorage?.getItem('openedPhoto')!)
-        const pagination = localStorage?.getItem('pagination')
+        const pagination = localStorage?.getItem('pagination') 
         pagination && photo!.id == photoOpened?.id && ref?.current?.scrollIntoView({ block: 'center', inline: 'center' })
     }, [])
 
