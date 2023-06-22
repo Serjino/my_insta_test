@@ -53,8 +53,12 @@ export default async function Page({ params }: { params: { postID: string } }) {
                     {COMMENTS?.map(comment => {
                         return (
                             <>
-                                <Comment comment={comment} />
+                                <Comment
+                                    key={comment.id}
+                                    comment={comment}
+                                />
                                 <MyComments
+                                    key={`myComments${comment.id}`}
                                     postId={params.postID}
                                     comment={comment}
                                 />

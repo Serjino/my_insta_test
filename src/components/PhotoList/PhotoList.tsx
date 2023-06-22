@@ -6,11 +6,9 @@ import { Photo } from "../Photo/Photo"
 import { IPaginationParams, IPhotoListProps } from "./types"
 import styles from './styles.module.css'
 
-export function PhotoList(props: IPhotoListProps) {
+const PHOTOS_PER_PAGE = 21
 
-    const { data } = props
-
-    const PHOTOS_PER_PAGE = 21
+export function PhotoList({ data }: IPhotoListProps) {
 
     const ref = useRef() as RefObject<HTMLUListElement>
 
@@ -35,7 +33,7 @@ export function PhotoList(props: IPhotoListProps) {
         const doesUserCameFromPostPage = openedPhoto && _pagination
         const targetParams = doesUserCameFromPostPage ? { ..._pagination, offset: 0 } : pagination
         setRenderedPhotos(prevState => [...prevState || [], ...getNewSlice(targetParams)])
-        
+
         return () => {
             localStorage.setItem('pagination', JSON.stringify(pagination))
         }
@@ -63,17 +61,15 @@ export function PhotoList(props: IPhotoListProps) {
     }, []);
 
     return (
-        <>
-            <ul
-                ref={ref}
-                onScroll={(e) => {
-                    clearTimeout(timeout)
-                    timeout = setTimeout(() => onScroll(e), 200)
-                }}
-                className={styles.photoList}
-            >
-                {renderedPhotos?.map(photo => <Photo key={photo.id} photo={photo} />)}
-            </ul>
-        </>
+        <ul
+            ref={ref}
+            onScroll={(e) => {
+                clearTimeout(timeout)
+                timeout = setTimeout(() => onScroll(e), 200)
+            }}
+            className={styles.photoList}
+        >
+            {renderedPhotos?.map(photo => <Photo key={photo.id} photo={photo} />)}
+        </ul>
     )
 }

@@ -4,9 +4,7 @@ import Image from "next/image"
 import Link from "next/link"
 import styles from './styles.module.css'
 
-export function Photo(props: IPhotoProps) {
-
-    const { photo } = props
+export function Photo({ photo }: IPhotoProps) {
 
     const ref = useRef() as RefObject<HTMLLIElement>
 

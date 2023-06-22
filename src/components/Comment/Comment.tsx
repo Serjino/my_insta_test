@@ -2,9 +2,7 @@
 import { ICommentProps } from './types'
 import styles from './styles.module.css'
 
-export function Comment(props: ICommentProps) {
-
-    const { comment, className } = props
+export function Comment({ comment, className }: ICommentProps) {
 
     return (
         <div className={styles.wrapper + ' ' + className}>

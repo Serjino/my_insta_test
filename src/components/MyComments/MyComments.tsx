@@ -3,13 +3,11 @@ import { FormEvent, useEffect, useState } from 'react'
 import { useDidMountEffect } from '@/hooks/useDidMountEffect';
 import { IComment } from '@/global/types';
 import { Comment } from '../Comment/Comment';
-import { CustomForm, IMyCommentsState, MyCommentsProps } from './types';
+import { CustomForm, MyCommentsProps } from './types';
 import { format } from 'date-fns';
 import styles from './styles.module.css'
 
-export function MyComments(props: MyCommentsProps) {
-
-    const { comment, postId } = props
+export function MyComments({ comment, postId }: MyCommentsProps) {
 
     const commentDraft: Partial<IComment> = {
         postId: postId,
@@ -18,37 +16,28 @@ export function MyComments(props: MyCommentsProps) {
         body: ''
     }
 
-    const [state, setState] = useState<IMyCommentsState>({
-        inputMode: false,
-        myComments: null
-    })
+    const [inputMode, setInputMode] = useState<boolean>(false)
+    const [myComments, setMyComments] = useState<null | IComment[]>(null)
 
     useEffect(() => {
         const savedComments = JSON.parse(localStorage.getItem('myComments')!);
         savedComments && savedComments[postId] &&
-            setState(prevState => ({
-                ...prevState,
-                myComments: savedComments ? savedComments[postId][comment.id] : null
-            }))
+        setMyComments(prevState => savedComments ? savedComments[postId][comment.id] : null)
     }, [])
 
     useDidMountEffect(() => {
-        if (state.myComments) {
-            let myComments = JSON.parse(localStorage.getItem('myComments')!) || {}
-            myComments[postId] = {
-                ...myComments[postId],
-                [comment.id]: state.myComments
+        if (myComments) {
+            let storagedMyCommets = JSON.parse(localStorage.getItem('myComments')!) || {}
+            storagedMyCommets[postId] = {
+                ...storagedMyCommets[postId],
+                [comment.id]: myComments
             }
-            console.log(myComments)
-            localStorage.setItem('myComments', JSON.stringify(myComments))
+            localStorage.setItem('myComments', JSON.stringify(storagedMyCommets))
         }
-    }, [state.myComments])
+    }, [myComments])
 
     function switchInputMode() {
-        setState(prevState => ({
-            ...prevState,
-            inputMode: !prevState.inputMode
-        }))
+        setInputMode(prevState => !prevState)
     }
 
     function submitMyComment(e: FormEvent<CustomForm>) {
@@ -63,25 +52,22 @@ export function MyComments(props: MyCommentsProps) {
             dateTime: format(new Date(), 'dd.MM.yyyy HH:mm')
         } as IComment
 
-        setState(prevState => ({
-            ...prevState,
-            myComments: [...[newComment], ...prevState.myComments || [],],
-            inputMode: false
-        }))
+        setMyComments(prevState => [...[newComment], ...prevState || [],])
+        switchInputMode()
     }
 
     return (
         <div>
-            {!state.inputMode &&
-                <div
+            {!inputMode &&
+                <button
                     className={styles.leaveCommentBtn}
                     onClick={switchInputMode}
                 >
                     Ответить
-                </div>
+                </button>
             }
             <div className={styles.formWrapper}>
-                {state.inputMode &&
+                {inputMode &&
                     <form
                         className={styles.form}
                         onSubmit={submitMyComment}
@@ -109,8 +95,8 @@ export function MyComments(props: MyCommentsProps) {
                 }
             </div>
             <div className={styles.myCommentsListWrapper}>
-                {state.myComments && state.myComments.map(myComment => {
-                    return <Comment className={styles.myComment} comment={myComment} />
+                {myComments && myComments.map(myComment => {
+                    return <Comment key={myComment.id} className={styles.myComment} comment={myComment} />
                 })}
             </div>
         </div>

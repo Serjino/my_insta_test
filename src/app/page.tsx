@@ -10,8 +10,6 @@ export default async function Page() {
     path: '/photos'
   })
 
-  console.log(PHOTO_LIST)
-
   return (
     <main>
       <PhotoList data={PHOTO_LIST} />
