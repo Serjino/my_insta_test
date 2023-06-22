@@ -76,6 +76,7 @@ export function MyComments({ comment, postId }: MyCommentsProps) {
                             name="myComment"
                             className={styles.input}
                             placeholder='Введите Ваш комментарий'
+                            required
                         />
                         <div className={styles.btnPanel}>
                             <button

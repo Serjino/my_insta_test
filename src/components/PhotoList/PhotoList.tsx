@@ -7,6 +7,7 @@ import { IPaginationParams, IPhotoListProps } from "./types"
 import styles from './styles.module.css'
 
 const PHOTOS_PER_PAGE = 21
+const SAVE_DISTANCE = 10
 
 export function PhotoList({ data }: IPhotoListProps) {
 
@@ -46,9 +47,8 @@ export function PhotoList({ data }: IPhotoListProps) {
 
     const onScroll = useCallback((event: React.UIEvent) => {
         const { scrollTop, scrollHeight, offsetHeight } = (event.target as HTMLUListElement);
-        const saveDistance = 10
         const scrollEdge = scrollHeight - offsetHeight;
-        const breakPoint = scrollEdge - saveDistance
+        const breakPoint = scrollEdge - SAVE_DISTANCE
         if (scrollTop >= breakPoint) {
             setPagination(prevState => ({
                 ...prevState,
