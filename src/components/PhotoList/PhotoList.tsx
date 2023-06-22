@@ -49,7 +49,6 @@ export function PhotoList({ data }: IPhotoListProps) {
         const saveDistance = 10
         const scrollEdge = scrollHeight - offsetHeight;
         const breakPoint = scrollEdge - saveDistance
-        console.log(breakPoint, scrollTop)
         if (scrollTop >= breakPoint) {
             setPagination(prevState => ({
                 ...prevState,
