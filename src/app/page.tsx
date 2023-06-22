@@ -1,14 +1,13 @@
-"use server";
-import React from "react";
-import { GET } from "../api/api";
-import { IPhoto } from "../global/types";
-import { PhotoList } from "../components/PhotoList/PhotoList";
+'use server';
+import React from 'react';
+import { GET } from '../api/api';
+import { IPhoto } from '../global/types';
+import { PhotoList } from '../components/PhotoList/PhotoList';
 
 export default async function Page() {
-
   const PHOTO_LIST: IPhoto[] = await GET({
-    path: '/photos'
-  })
+    path: '/photos',
+  });
 
   return (
     <main>

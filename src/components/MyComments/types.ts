@@ -1,19 +1,19 @@
-import { IComment } from "@/global/types";
+import { IComment } from '@/global/types';
 
 export interface MyCommentsProps {
-    postId: number | string,
-    comment: IComment
+  postId: number | string;
+  comment: IComment;
 }
 
 export interface CustomElements extends HTMLFormControlsCollection {
-    myComment: HTMLTextAreaElement;
+  myComment: HTMLTextAreaElement;
 }
 
 export interface CustomForm extends HTMLFormElement {
-    readonly elements: CustomElements;
+  readonly elements: CustomElements;
 }
 
 export interface IMyCommentsState {
-    inputMode: boolean,
-    myComments: null | IComment[]
+  inputMode: boolean;
+  myComments: null | IComment[];
 }

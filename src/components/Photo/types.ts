@@ -1,5 +1,5 @@
-import { IPhoto } from "@/global/types";
+import { IPhoto } from '@/global/types';
 
 export interface IPhotoProps {
-    photo: IPhoto | undefined | null
+  photo: IPhoto | undefined | null;
 }

@@ -1,5 +1,5 @@
-import { IComment } from "@/global/types";
+import { IComment } from '@/global/types';
 
 export interface ICommentProps extends Partial<HTMLDivElement> {
-    comment: IComment
+  comment: IComment;
 }

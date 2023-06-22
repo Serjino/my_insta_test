@@ -1,10 +1,10 @@
-import { IPhoto } from "@/global/types";
+import { IPhoto } from '@/global/types';
 
 export interface IPhotoListProps {
-    data: IPhoto[] | null
+  data: IPhoto[] | null;
 }
 
 export interface IPaginationParams {
-    offset: number,
-    limit: number,
+  offset: number;
+  limit: number;
 }
